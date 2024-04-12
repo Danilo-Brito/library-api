@@ -20,14 +20,41 @@ def criar():
     categoria = request.form['categoria']
     autor = request.form['autor']
 
-    livro = Books.query.filter_by(nome=nome).first()
+    books = Books.query.filter_by(nome=nome).first()
 
-    if livro:
+    if books:
         flash('Livro já existente!')
         return redirect(url_for('index'))
 
-    novo_livro = Books(nome=nome, categoria=categoria, autor=autor)
-    db.session.add(novo_livro)
+    new_book = Books(nome=nome, categoria=categoria, autor=autor)
+    db.session.add(new_book)
     db.session.commit()
 
+    return redirect(url_for('index'))
+
+
+@app.route('/editar/<int:id>')
+def editar(id):
+    book = Books.query.filter_by(id=id).first()
+    return render_template('editar.html', titulo='Editando Livro', book=book)
+
+
+@app.route('/atualizar', methods=['POST', ])
+def atualizar():
+    book = Books.query.filter_by(id=request.form['id']).first()
+    book.nome = request.form['nome']
+    book.categoria = request.form['categoria']
+    book.autor = request.form['autor']
+
+    db.session.add(book)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
+
+@app.route('/deletar/<int:id>')
+def deletar(id):
+    Books.query.filter_by(id=id).delete()
+    db.session.commit()
+    flash('Livro deletado com sucesso!')
     return redirect(url_for('index'))

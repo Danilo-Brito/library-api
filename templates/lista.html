@@ -15,6 +15,10 @@
         <td>{{ book.nome }}</td>
         <td>{{ book.categoria }}</td>
         <td>{{ book.autor }}</td>
+        <td>
+            <a href="{{ url_for('editar', id=book.id) }}">Editar</a>
+            <a href="{{ url_for('deletar', id=book.id) }}">Deletar</a>
+        </td>
     </tr>
     {% endfor %}
     </tbody>

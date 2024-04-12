@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8e538e9-00fc-45fc-bf56-6e3132a82568" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraryProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/editar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/lista.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/novo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/template.html" afterDir="false" />
+    <list default="true" id="a8e538e9-00fc-45fc-bf56-6e3132a82568" name="Changes" comment="bootstrap teste">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +119,37 @@
       <option name="presentableId" value="Default" />
       <updated>1712883129246</updated>
     </task>
+    <task id="LOCAL-00001" summary="Post e Get funcionando">
+      <option name="closed" value="true" />
+      <created>1712938098595</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712938098595</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Finishing Crud">
+      <option name="closed" value="true" />
+      <created>1712942775746</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712942775746</updated>
+    </task>
+    <task id="LOCAL-00003" summary="bootstrap teste">
+      <option name="closed" value="true" />
+      <created>1712942791707</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712942791707</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Post e Get funcionando" />
+    <MESSAGE value="Finishing Crud" />
+    <MESSAGE value="bootstrap teste" />
+    <option name="LAST_COMMIT_MESSAGE" value="bootstrap teste" />
   </component>
 </project>
