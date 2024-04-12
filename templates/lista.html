@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<table class="table table-striped table-responsive table-bordered">
+    <thead class="thead-default">
+    <tr>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Autor</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+    <tr>
+        <td>{{ book.nome }}</td>
+        <td>{{ book.categoria }}</td>
+        <td>{{ book.autor }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
