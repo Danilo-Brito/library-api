@@ -3,7 +3,7 @@ from library import app, db
 from models.models import Books
 
 
-@app.get('/')
+@app.get('/livros')
 def index():
     books = Books.query.order_by(Books.id)
     return render_template('lista.html', titulo='books', books=books)
@@ -16,17 +16,17 @@ def novo():
 
 @app.route('/criar', methods=['POST', ])
 def criar():
-    nome = request.form['nome']
-    categoria = request.form['categoria']
-    autor = request.form['autor']
+    name = request.form['name']
+    category = request.form['category']
+    author = request.form['author']
 
-    books = Books.query.filter_by(nome=nome).first()
+    books = Books.query.filter_by(name=name).first()
 
     if books:
         flash('Livro já existente!')
         return redirect(url_for('index'))
 
-    new_book = Books(nome=nome, categoria=categoria, autor=autor)
+    new_book = Books(name=name, category=category, author=author)
     db.session.add(new_book)
     db.session.commit()
 
@@ -42,9 +42,9 @@ def editar(id):
 @app.route('/atualizar', methods=['POST', ])
 def atualizar():
     book = Books.query.filter_by(id=request.form['id']).first()
-    book.nome = request.form['nome']
-    book.categoria = request.form['categoria']
-    book.autor = request.form['autor']
+    book.name = request.form['name']
+    book.category = request.form['category']
+    book.author = request.form['author']
 
     db.session.add(book)
     db.session.commit()

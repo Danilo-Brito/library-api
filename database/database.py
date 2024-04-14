@@ -29,9 +29,9 @@ TABLES = {}
 TABLES['Books'] = ('''
     CREATE TABLE books (
     id int NOT NULL AUTO_INCREMENT,
-    nome varchar(50) NOT NULL,
-    autor varchar(50) NOT NULL,
-    categoria varchar(50) NOT NULL,
+    name varchar(50) NOT NULL,
+    author varchar(50) NOT NULL,
+    category varchar(50) NOT NULL,
     PRIMARY KEY (id)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;''')
 
@@ -49,7 +49,7 @@ for tabela_nome in TABLES:
         print('OK')
 
 # inserindo livros
-books_sql = 'INSERT INTO books (nome, autor, categoria) VALUES (%s, %s, %s)'
+books_sql = 'INSERT INTO books (name, author, category) VALUES (%s, %s, %s)'
 books = [
     ('Duna', 'Frank Hebert', 'Ficção Científica'),
     ('O Chamado de Cthulhu', 'H.P. Lovecraft', 'Ficção Científica'),

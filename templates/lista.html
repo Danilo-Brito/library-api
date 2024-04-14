@@ -12,9 +12,9 @@
     <tbody>
     {% for book in books %}
     <tr>
-        <td>{{ book.nome }}</td>
-        <td>{{ book.categoria }}</td>
-        <td>{{ book.autor }}</td>
+        <td>{{ book.name }}</td>
+        <td>{{ book.category }}</td>
+        <td>{{ book.author }}</td>
         <td>
             <a href="{{ url_for('editar', id=book.id) }}">Editar</a>
             <a href="{{ url_for('deletar', id=book.id) }}">Deletar</a>
