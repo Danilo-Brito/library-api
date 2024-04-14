@@ -1,12 +1,20 @@
 from flask import render_template, request, redirect, session, flash, url_for
-from library import app, db
+from library import app, db, home_tag, book_tag
 from models.models import Books
+from schemas import BookSchema, ErrorSchema, show_books
 
 
-@app.get('/livros')
+@app.get('/', tags=[home_tag])
+def home():
+    """Redireciona para /openapi, tela que permite a escolha do estilo de documentação.
+    """
+    return redirect('/openapi')
+
+
+@app.get('/livros', tags=[book_tag], responses={"200": BookSchema, "404": ErrorSchema})
 def index():
-    books = Books.query.order_by(Books.id)
-    return render_template('lista.html', titulo='books', books=books)
+    books = db.session.query(Books).all()
+    return show_books(books), 200
 
 
 @app.route('/novo')
