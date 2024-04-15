@@ -1,35 +1,64 @@
-# Minha API
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+    <img src="resources/book.png" alt="Logo" width="80" height="80">
+  </a>
 
-Este pequeno projeto faz parte do material diático da Disciplina **Desenvolvimento Full Stack Básico** 
+<h3 align="center">Minha Biblioteca - API</h3>
 
-O objetivo aqui é ilutsrar o conteúdo apresentado ao longo das três aulas da disciplina.
+  <p align="center">
+   Projeto MVP - Sprint: Desenvolvimento Full Stack Básico
+</div>
 
----
-## Como executar 
+## Sobre o Projeto
 
+[![Product Name Screen Shot][product-screenshot]](http://127.0.0.1:5000/openapi/swagger)
 
-Será necessário ter todas as libs python listadas no `requirements.txt` instaladas.
-Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal, para poder executar os comandos descritos abaixo.
+Este projeto tem como objetivo ajudar a listar os livros comprados cadastrando eles plataforma.
 
-> É fortemente indicado o uso de ambientes virtuais do tipo [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html).
+Nesta API você ira conseguir fazer as seguintes ações:
 
-```
-(env)$ pip install -r requirements.txt
-```
+* Adicionar um livro
+* Editar um livro
+* Deletar um livro
+* Listar todos os livros
 
-Este comando instala as dependências/bibliotecas, descritas no arquivo `requirements.txt`.
+## Como Executar
 
-Para executar a API  basta executar:
+### Installation
 
-```
-(env)$ flask run --host 0.0.0.0 --port 5000
-```
+1. Faça o clone do reposítorio. Este comando instala as dependências/bibliotecas, descritas no
+   arquivo `requirements.txt`.
+   ```sh
+   git clone https://github.com/Danilo-Brito/library-api
+   ```
+2. Abra o terminal e execute o comando abaixo.
+   ```sh
+   (env)$ pip install -r requirements.txt
+   ```
+   
+3. Abra o arquivo `database.py` altera as credências para a que você utiliza no seu SQL.
 
-Em modo de desenvolvimento é recomendado executar utilizando o parâmetro reload, que reiniciará o servidor
-automaticamente após uma mudança no código fonte. 
+4. Execute no terminal o arquivo `database.py`
+   [![Product Name Screen Shot][ex]]()
 
-```
-(env)$ flask run --host 0.0.0.0 --port 5000 --reload
-```
+   > Caso esteja usando VS Code, o comando pode ser executado clicando com o botão direito em cima do arquivo.
+   E acessando a opção da imagem.
 
-Abra o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador para verificar o status da API em execução.
+5. Execute o arquivo `library.py` no terminal, para executar a API.
+6. Abra no seu browser o link para ter acesso a doc da api
+   ```
+   http://127.0.0.1:5000/openapi/swagger
+   ```
+
+<!-- CONTACT -->
+
+## Contact
+
+Danilo Brito - danilomelo.brito19@gmail.com
+
+Project Link: https://github.com/Danilo-Brito/library-api
+
+[product-screenshot]: resources/bd.png
+
+[ex]: resources/ex.png
