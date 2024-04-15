@@ -2,9 +2,11 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from routes import routes
 from flask_openapi3 import Tag, OpenAPI
+from flask_cors import CORS
 
 app = OpenAPI(__name__)
 app.config.from_pyfile('config.py')
+CORS(app)
 
 db = SQLAlchemy(app)
 

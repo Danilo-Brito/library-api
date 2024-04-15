@@ -2,67 +2,89 @@ from flask import render_template, request, redirect, session, flash, url_for
 from library import app, db, home_tag, book_tag
 from models.models import Books
 from schemas import BookSchema, ErrorSchema, show_books
+from schemas.books import BookViewSchema, BookSearchSchema
+from sqlalchemy.exc import IntegrityError
+from urllib.parse import unquote
 
 
 @app.get('/', tags=[home_tag])
 def home():
-    """Redireciona para /openapi, tela que permite a escolha do estilo de documentação.
+    """
+    Redireciona para openapi
     """
     return redirect('/openapi')
 
 
 @app.get('/livros', tags=[book_tag], responses={"200": BookSchema, "404": ErrorSchema})
 def index():
+    """
+    Busca e retorna todos os livros cadastrados
+    """
     books = db.session.query(Books).all()
     return show_books(books), 200
 
 
-@app.route('/novo')
-def novo():
-    return render_template('novo.html', titulo='Novo Livro')
+@app.post('/criar', tags=[book_tag], responses={"200": BookViewSchema, "409": ErrorSchema, "400": ErrorSchema})
+def criar(form: BookSchema):
+    """
+    Adiciona um novo livro ao bando de dados
+    """
+
+    new_book = Books(
+        name=form.name,
+        category=form.category,
+        author=form.author
+    )
+
+    try:
+        db.session.add(new_book)
+        db.session.commit()
+        return show_books(new_book), 200
+
+    except IntegrityError as e:
+        error_message = "Livro já está cadastrado!"
+        return {"message": error_message}, 409
+
+    except Exception as e:
+        error_message = "Não foi possível salvar o livro"
+        return {"message": error_message}, 400
 
 
-@app.route('/criar', methods=['POST', ])
-def criar():
-    name = request.form['name']
-    category = request.form['category']
-    author = request.form['author']
-
-    books = Books.query.filter_by(name=name).first()
-
-    if books:
-        flash('Livro já existente!')
-        return redirect(url_for('index'))
-
-    new_book = Books(name=name, category=category, author=author)
-    db.session.add(new_book)
+@app.post('/atualizar', tags=[book_tag], responses={"200": BookViewSchema, "409": ErrorSchema, "400": ErrorSchema})
+def atualizar(form: BookSchema):
+    """
+    Adiciona o livro alterado ao bando de dados
+    """
+    book_update = db.session.query(Books).filter(Books.id == form.id)
+    book_update.update(
+        {
+            'id': form.id,
+            "name": form.name,
+            "category": form.category,
+            "author": form.author
+        }
+    )
     db.session.commit()
 
-    return redirect(url_for('index'))
+    if book_update:
+        return {"message": "Livro atualizado"}, 200
+    else:
+        error_msg = "Livro não encontrado"
+        return {"mesage": error_msg}, 404
 
 
-@app.route('/editar/<int:id>')
-def editar(id):
-    book = Books.query.filter_by(id=id).first()
-    return render_template('editar.html', titulo='Editando Livro', book=book)
-
-
-@app.route('/atualizar', methods=['POST', ])
-def atualizar():
-    book = Books.query.filter_by(id=request.form['id']).first()
-    book.name = request.form['name']
-    book.category = request.form['category']
-    book.author = request.form['author']
-
-    db.session.add(book)
+@app.delete('/deletar', tags=[book_tag], responses={"200": BookSchema, "404": ErrorSchema})
+def deletar(query: BookSearchSchema):
+    """
+    Deleta um livro do bando de dados
+    """
+    book_name = unquote(unquote(query.name))
+    print(book_name)
+    count = db.session.query(Books).filter(Books.name == book_name).delete()
     db.session.commit()
 
-    return redirect(url_for('index'))
-
-
-@app.route('/deletar/<int:id>')
-def deletar(id):
-    Books.query.filter_by(id=id).delete()
-    db.session.commit()
-    flash('Livro deletado com sucesso!')
-    return redirect(url_for('index'))
+    if count:
+        return {"message": "Livro removido", "id": book_name}
+    else:
+        error_msg = "Livro não encontrado"
+        return {"mesage": error_msg}, 404
