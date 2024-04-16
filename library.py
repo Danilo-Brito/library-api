@@ -1,4 +1,3 @@
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from routes import routes
 from flask_openapi3 import Tag, OpenAPI

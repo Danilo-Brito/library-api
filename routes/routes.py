@@ -58,7 +58,6 @@ def atualizar(form: BookSchema):
     book_update = db.session.query(Books).filter(Books.id == form.id)
     book_update.update(
         {
-            'id': form.id,
             "name": form.name,
             "category": form.category,
             "author": form.author
@@ -84,7 +83,7 @@ def deletar(query: BookSearchSchema):
     db.session.commit()
 
     if count:
-        return {"message": "Livro removido", "id": book_name}
+        return {"message": "Livro removido", "name": book_name}
     else:
         error_msg = "Livro não encontrado"
-        return {"mesage": error_msg}, 404
+        return {"message": error_msg}, 404

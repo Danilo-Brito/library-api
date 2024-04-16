@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8e538e9-00fc-45fc-bf56-6e3132a82568" name="Changes" comment="Create edit rule">
-      <change afterPath="$PROJECT_DIR$/resources/bd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/book.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/ex.png" afterDir="false" />
+    <list default="true" id="a8e538e9-00fc-45fc-bf56-6e3132a82568" name="Changes" comment="Change README and remove old codes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library.py" beforeDir="false" afterPath="$PROJECT_DIR$/library.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/editar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lista.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/novo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/books.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/books.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713156201710</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Change README and remove old codes">
+      <option name="closed" value="true" />
+      <created>1713206986579</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713206986579</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,6 +258,7 @@
     <MESSAGE value="refactor models and database" />
     <MESSAGE value="resolvendo as tretas" />
     <MESSAGE value="Create edit rule" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create edit rule" />
+    <MESSAGE value="Change README and remove old codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change README and remove old codes" />
   </component>
 </project>
